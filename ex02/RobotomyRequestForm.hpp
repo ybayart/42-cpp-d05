@@ -1,0 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hexa <marvin@42.fr>                        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/04/28 16:41:33 by hexa              #+#    #+#             */
+/*   Updated: 2020/04/28 17:32:02 by hexa             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
+
+# include "Form.hpp"
+
+class RobotomyRequestForm : public Form
+{
+	public:
+		RobotomyRequestForm(void);
+		RobotomyRequestForm(std::string);
+		RobotomyRequestForm(const RobotomyRequestForm&);
+
+		~RobotomyRequestForm(void);
+
+		RobotomyRequestForm& operator=	(const RobotomyRequestForm&);
+
+		virtual void            execute(const Bureaucrat&) const;
+
+	private:
+		static const int        m_sign;
+		static const int        m_exec;
+};
+
+#endif

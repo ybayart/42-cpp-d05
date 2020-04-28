@@ -6,7 +6,7 @@
 /*   By: hexa <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 04:24:35 by hexa              #+#    #+#             */
-/*   Updated: 2020/04/28 16:53:24 by hexa             ###   ########.fr       */
+/*   Updated: 2020/04/28 17:45:12 by hexa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,27 @@ class Form
 		bool		m_signed;
 		int			m_toSign;
 		int			m_toExec;
+		std::string	m_target;
 
 	public:
 		Form(void);
-		Form(std::string, int, int);
+		Form(std::string, std::string, int, int);
 		Form(const Form&);
 
 		Form& operator=	(const Form&);
 
 		~Form(void);
+	
+		void			beSigned(Bureaucrat&);
+		void			setTarget(std::string);
+
+		virtual void	execute(const Bureaucrat&) const = 0;
 
 		std::string		getName() const;
 		bool			getSigned() const;
 		int				getToSign() const;
 		int				getToExec() const;
-		void			beSigned(Bureaucrat&);
+		std::string		getTarget() const;
 
 		class GradeTooLowException : public std::exception
 		{
@@ -63,6 +69,19 @@ class Form
 				virtual ~GradeTooHighException(void) throw();
 
 				GradeTooHighException& operator=	(const GradeTooHighException&);
+
+				virtual const char	*what() const throw();
+		};
+
+		class NotSignedException : public std::exception
+		{
+		   public:
+				NotSignedException(void);
+				NotSignedException(const NotSignedException&);
+
+				virtual ~NotSignedException(void) throw();
+
+				NotSignedException& operator=	(const NotSignedException&);
 
 				virtual const char	*what() const throw();
 		};
