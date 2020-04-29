@@ -6,7 +6,7 @@
 /*   By: hexa <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 03:49:46 by hexa              #+#    #+#             */
-/*   Updated: 2020/04/29 03:42:06 by hexa             ###   ########.fr       */
+/*   Updated: 2020/04/29 04:16:26 by hexa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ main(void)
 		elysee.eat(tmp);
 	}
 
-	for (int i = 0;i < 2000;i++)
+	for (int i = 0;i < 1000;i++)
 		elysee.queueUp(random_string(rand() % 20 + 10));
 
 	elysee.doBureaucracy();

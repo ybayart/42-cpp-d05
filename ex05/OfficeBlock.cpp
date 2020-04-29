@@ -6,7 +6,7 @@
 /*   By: hexa <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 23:42:30 by hexa              #+#    #+#             */
-/*   Updated: 2020/04/29 03:38:35 by hexa             ###   ########.fr       */
+/*   Updated: 2020/04/29 04:17:39 by hexa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,21 @@ OfficeBlock::doBureaucracy(std::string name, std::string target)
 		throw OfficeBlock::MissingMemberException(2);
 	if ((form = this->m_intern->makeForm(name, target)) == NULL)
 		return ;
-	std::cout << "sign: ";
-	form->beSigned(*(this->m_signer));
-	std::cout << *form;
-	std::cout << "execute: ";
-	form->execute(*(this->m_executor));
-	std::cout << *form;
+	try
+	{
+		std::cout << "sign: ";
+		form->beSigned(*(this->m_signer));
+		std::cout << *form;
+		std::cout << "execute: ";
+		form->execute(*(this->m_executor));
+		std::cout << *form;
+		delete form;
+	}
+	catch (std::exception& e)
+	{
+		delete form;
+		throw;
+	}
 }
 
 

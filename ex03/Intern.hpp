@@ -6,7 +6,7 @@
 /*   By: hexa <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 22:29:25 by hexa              #+#    #+#             */
-/*   Updated: 2020/04/28 22:58:32 by hexa             ###   ########.fr       */
+/*   Updated: 2020/04/29 04:19:37 by hexa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class	Intern
 		Intern(const Intern&);
 		Intern& operator=	(const Intern&);
 
-		~Intern(void);
+		virtual ~Intern(void);
 
 		Form*	makeForm(std::string, std::string);
 
