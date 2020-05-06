@@ -6,13 +6,14 @@
 /*   By: hexa <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 01:35:26 by hexa              #+#    #+#             */
-/*   Updated: 2020/04/29 03:23:09 by hexa             ###   ########.fr       */
+/*   Updated: 2020/05/06 03:28:04 by hexa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CENTRALBUREAUCRACY_HPP
 # define CENTRALBUREAUCRACY_HPP
 
+# include <cstdlib>
 # include "OfficeBlock.hpp"
 # include "Bureaucrat.hpp"
 # include "Intern.hpp"

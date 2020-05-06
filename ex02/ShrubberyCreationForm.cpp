@@ -6,7 +6,7 @@
 /*   By: hexa <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 16:59:09 by hexa              #+#    #+#             */
-/*   Updated: 2020/04/28 18:30:10 by hexa             ###   ########.fr       */
+/*   Updated: 2020/05/06 03:24:27 by hexa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 	std::ofstream  file;
 
 	Form::execute(executor);
-	file.open(getTarget() + "_shrubbery", std::ofstream::out | std::ofstream::trunc);
+	file.open((getTarget() + "_shrubbery").c_str(), std::ofstream::out | std::ofstream::trunc);
 	if (file.fail())
 		std::cerr << "Error openning the outfile" << std::endl;
 	file << "          1            " << std::endl;

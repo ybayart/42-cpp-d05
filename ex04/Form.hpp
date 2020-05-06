@@ -6,7 +6,7 @@
 /*   By: hexa <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 04:24:35 by hexa              #+#    #+#             */
-/*   Updated: 2020/04/28 17:45:12 by hexa             ###   ########.fr       */
+/*   Updated: 2020/05/06 03:26:58 by hexa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class Form
 
 		Form& operator=	(const Form&);
 
-		~Form(void);
+		virtual ~Form(void);
 	
 		void			beSigned(Bureaucrat&);
 		void			setTarget(std::string);

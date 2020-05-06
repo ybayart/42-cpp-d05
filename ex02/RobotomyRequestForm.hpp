@@ -6,13 +6,14 @@
 /*   By: hexa <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 16:41:33 by hexa              #+#    #+#             */
-/*   Updated: 2020/04/28 17:32:02 by hexa             ###   ########.fr       */
+/*   Updated: 2020/05/06 03:22:30 by hexa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROBOTOMYREQUESTFORM_HPP
 # define ROBOTOMYREQUESTFORM_HPP
 
+# include <cstdlib>
 # include "Form.hpp"
 
 class RobotomyRequestForm : public Form
