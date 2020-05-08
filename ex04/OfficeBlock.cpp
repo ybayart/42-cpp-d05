@@ -6,7 +6,7 @@
 /*   By: hexa <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 23:42:30 by hexa              #+#    #+#             */
-/*   Updated: 2020/04/29 04:19:04 by hexa             ###   ########.fr       */
+/*   Updated: 2020/05/09 01:27:52 by hexa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ OfficeBlock::doBureaucracy(std::string name, std::string target)
 	Form*	form;
 
 	if (this->m_intern == NULL)
-		throw OfficeBlock::MissingMemberException(0);
+		throw OfficeBlock::MissingInternException();
 	if (this->m_signer == NULL)
-		throw OfficeBlock::MissingMemberException(1);
+		throw OfficeBlock::MissingSignerException();
 	if (this->m_executor == NULL)
-		throw OfficeBlock::MissingMemberException(2);
+		throw OfficeBlock::MissingExecutorException();
 	if ((form = this->m_intern->makeForm(name, target)) == NULL)
 		return ;
 	try
@@ -80,45 +80,77 @@ OfficeBlock::doBureaucracy(std::string name, std::string target)
 
 //========== EXCEPTION
 
-const char*
-OfficeBlock::MissingMemberException::m_messages[4] = {
-	"Member `Intern` is missing...",
-	"Member `Signer` is missing...",
-	"Member `Executor` is missing...",
-	"A required member is missing..."
-};
+//MissingIntern
 
-//MissingMember
-
-OfficeBlock::MissingMemberException::MissingMemberException(void)
-{
-	this->m_index = 3;
-}
-
-OfficeBlock::MissingMemberException::MissingMemberException(int index)
-{
-	if (index < 0 || index > 3)
-		index = 3;
-	this->m_index = index;
-}
+OfficeBlock::MissingInternException::MissingInternException(void) {}
 
 OfficeBlock::
-MissingMemberException::MissingMemberException(const MissingMemberException& src)
+MissingInternException::MissingInternException(const MissingInternException& src)
 {
     *this = src;
 }
 
-OfficeBlock::MissingMemberException::~MissingMemberException(void) throw() {}
+OfficeBlock::MissingInternException::~MissingInternException(void) throw() {}
 
-OfficeBlock::MissingMemberException&
-OfficeBlock::MissingMemberException::operator=	(const MissingMemberException& rhs)
+OfficeBlock::MissingInternException&
+OfficeBlock::MissingInternException::operator=	(const MissingInternException& rhs)
 {
     static_cast <void> (rhs);
     return (*this);
 }
 
 const char*
-OfficeBlock::MissingMemberException::what() const throw()
+OfficeBlock::MissingInternException::what() const throw()
 {
-	return (m_messages[this->m_index]);
+	return ("Member `Intern` is missing...");
+}
+
+//MissingSigner
+
+OfficeBlock::MissingSignerException::MissingSignerException(void) {}
+
+OfficeBlock::
+MissingSignerException::MissingSignerException(const MissingSignerException& src)
+{
+    *this = src;
+}
+
+OfficeBlock::MissingSignerException::~MissingSignerException(void) throw() {}
+
+OfficeBlock::MissingSignerException&
+OfficeBlock::MissingSignerException::operator=	(const MissingSignerException& rhs)
+{
+    static_cast <void> (rhs);
+    return (*this);
+}
+
+const char*
+OfficeBlock::MissingSignerException::what() const throw()
+{
+	return ("Member `Signer` is missing...");
+}
+
+//MissingExecutor
+
+OfficeBlock::MissingExecutorException::MissingExecutorException(void) {}
+
+OfficeBlock::
+MissingExecutorException::MissingExecutorException(const MissingExecutorException& src)
+{
+    *this = src;
+}
+
+OfficeBlock::MissingExecutorException::~MissingExecutorException(void) throw() {}
+
+OfficeBlock::MissingExecutorException&
+OfficeBlock::MissingExecutorException::operator=	(const MissingExecutorException& rhs)
+{
+    static_cast <void> (rhs);
+    return (*this);
+}
+
+const char*
+OfficeBlock::MissingExecutorException::what() const throw()
+{
+	return ("Member `Executor` is missing...");
 }

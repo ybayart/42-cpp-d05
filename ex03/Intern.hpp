@@ -6,7 +6,7 @@
 /*   By: hexa <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 22:29:25 by hexa              #+#    #+#             */
-/*   Updated: 2020/04/29 04:19:37 by hexa             ###   ########.fr       */
+/*   Updated: 2020/05/09 01:04:28 by hexa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ class	Intern
 		Form*	makeForm(std::string, std::string);
 
 		typedef Form* (Intern::*InternFunc)(std::string);
-		static std::string	m_funcNames[3];
 
 	private:
 		InternFunc	m_rep[3];
+		static std::string	m_funcNames[3];
 
 		Form*		m_makeShrubberyCreationForm(std::string);
 		Form*		m_makeRobotomyRequestForm(std::string);

@@ -6,7 +6,7 @@
 /*   By: hexa <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 23:32:25 by hexa              #+#    #+#             */
-/*   Updated: 2020/04/29 00:52:44 by hexa             ###   ########.fr       */
+/*   Updated: 2020/05/09 01:21:50 by hexa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ class	OfficeBlock
 		Bureaucrat*	m_signer;
 		Bureaucrat*	m_executor;
 
+		OfficeBlock(const OfficeBlock&);
+		OfficeBlock& operator=	(const OfficeBlock&);
+
 	public:
 		OfficeBlock(void);
 		OfficeBlock(Intern&, Bureaucrat&, Bureaucrat&);
@@ -34,22 +37,47 @@ class	OfficeBlock
 
 		void	doBureaucracy(std::string, std::string);
 
-		class MissingMemberException : public std::exception
+
+		class MissingInternException : public std::exception
 		{
 		   public:
-				MissingMemberException(void);
-				MissingMemberException(int);
-				MissingMemberException(const MissingMemberException&);
+				MissingInternException(void);
+				MissingInternException(int);
+				MissingInternException(const MissingInternException&);
 
-				virtual ~MissingMemberException(void) throw();
+				virtual ~MissingInternException(void) throw();
 
-				MissingMemberException& operator=	(const MissingMemberException&);
+				MissingInternException& operator=	(const MissingInternException&);
 
 				virtual const char*		what() const throw();
+		};
 
-			private:
-				int					m_index;
-				static const char*	m_messages[4];
+		class MissingSignerException : public std::exception
+		{
+		   public:
+				MissingSignerException(void);
+				MissingSignerException(int);
+				MissingSignerException(const MissingSignerException&);
+
+				virtual ~MissingSignerException(void) throw();
+
+				MissingSignerException& operator=	(const MissingSignerException&);
+
+				virtual const char*		what() const throw();
+		};
+
+		class MissingExecutorException : public std::exception
+		{
+		   public:
+				MissingExecutorException(void);
+				MissingExecutorException(int);
+				MissingExecutorException(const MissingExecutorException&);
+
+				virtual ~MissingExecutorException(void) throw();
+
+				MissingExecutorException& operator=	(const MissingExecutorException&);
+
+				virtual const char*		what() const throw();
 		};
 };
 
