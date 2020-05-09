@@ -6,7 +6,7 @@
 /*   By: hexa <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 03:35:39 by hexa              #+#    #+#             */
-/*   Updated: 2020/04/28 04:17:54 by hexa             ###   ########.fr       */
+/*   Updated: 2020/05/09 17:09:03 by hexa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void
 Bureaucrat::decGrade()
 {
 	if (this->m_grade == 150)
-		throw Bureaucrat::GradeTooHighException();
+		throw Bureaucrat::GradeTooLowException();
 	else
 		this->m_grade++;
 }
